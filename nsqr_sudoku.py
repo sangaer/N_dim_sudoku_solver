@@ -1,6 +1,12 @@
+import numpy as np
+import copy
+from functools import partial
+from itertools import chain
+
 ############
 # Given
 ############
+
 def _split2D(M, bl):
     for Mi in np.split(M, bl, axis=0):
         for Mj in np.split(Mi, bl, axis=1):
@@ -69,10 +75,6 @@ def find_candidate(M, i, j):
 ############
 # Solution
 ############
-import copy
-from functools import partial
-from itertools import chain
-
 
 def _fill(v, M, i, j):
     ret = copy.deepcopy(M)
@@ -109,9 +111,7 @@ def main(M):
     yield from _process([M])
         
 if __name__ == '__main__':
-    
 
-    import numpy as np
     M = np.array([[5,3,0,0,7,0,0,0,0],
                   [6,0,0,1,9,5,0,0,0],
                   [0,9,8,0,0,0,0,6,0],
